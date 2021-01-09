@@ -4,32 +4,32 @@ def swap(tree, index_1, index_2):
     tree[index_2] = temp
 
 
-def heapify(tree, index, tree_size):
+def heapify(tree, index, last_node_index):
 
     left_child_index = 2 * index
     right_child_index = 2 * index + 1
 
     largest = index
 
-    if 0 < left_child_index < tree_size and tree[largest] < tree[left_child_index]:
+    if 0 < left_child_index <= last_node_index and tree[largest] < tree[left_child_index]:
         largest = left_child_index
 
-    if 0 < right_child_index < tree_size and tree[largest] < tree[right_child_index]:
+    if 0 < right_child_index <= last_node_index and tree[largest] < tree[right_child_index]:
         largest = right_child_index
     
     if largest != index:
         swap(tree, index, largest)
-        heapify(tree, largest, tree_size)
+        heapify(tree, largest, last_node_index)
 
 def heapsort(tree):
-    tree_size = len(tree)
+    last_node_index = len(tree) - 1
 
-    for index in range(tree_size-1, 0 , -1):
-        heapify(tree, index, tree_size)
+    for index in range(last_node_index, 0 , -1):
+        heapify(tree, index, last_node_index)
 
-    for i in range(tree_size-1, 1, -1):
+    for i in range(last_node_index, 1, -1):
         swap(tree, 1, i)
-        heapify(tree, 1, i)
+        heapify(tree, 1, i-1)
 
 # My answer
 # def heapsort(tree):

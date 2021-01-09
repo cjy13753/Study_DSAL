@@ -3,22 +3,22 @@ def swap(tree, index_1, index_2):
     tree[index_1] = tree[index_2]
     tree[index_2] = temp
 
-def heapify(tree, index, tree_size):
+def heapify(tree, index, last_node_index):
 
     left_child_index = 2 * index
     right_child_index = 2 * index + 1
 
     largest = index
 
-    if 0 < left_child_index < tree_size and tree[largest] < tree[left_child_index]:
+    if 0 < left_child_index <= last_node_index and tree[largest] < tree[left_child_index]:
         largest = left_child_index
 
-    if 0 < right_child_index < tree_size and tree[largest] < tree[right_child_index]:
+    if 0 < right_child_index <= last_node_index and tree[largest] < tree[right_child_index]:
         largest = right_child_index
     
     if largest != index:
         swap(tree, index, largest)
-        heapify(tree, largest, tree_size)
+        heapify(tree, largest, last_node_index)
 
     # My answer
     # left_child_index = 2 * index
