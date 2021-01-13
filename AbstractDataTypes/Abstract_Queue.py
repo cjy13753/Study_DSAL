@@ -21,6 +21,3 @@ print(queue.popleft())
 print(queue.popleft())
 
 print(queue)
-
-
-
