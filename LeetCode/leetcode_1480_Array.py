@@ -1,3 +1,5 @@
+# 1480. Running sum of 1d array
+
 from typing import List
 
 class Solution:

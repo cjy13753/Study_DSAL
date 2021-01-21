@@ -34,7 +34,7 @@ class LinkedList:
                 iterator = iterator.next
         return "No nodes contain {}".format(data)
 
-    def prepend(self, data):
+    def prepend(self, data): # O(1)
         new_node = Node(data)
         
         if self.head == None:
@@ -45,7 +45,7 @@ class LinkedList:
             self.head = new_node
             
 
-    def insert_after(self, previous_node, data):
+    def insert_after(self, previous_node, data): # O(n)
         """Insert Opeartion"""
         new_node = Node(data)
 
@@ -56,7 +56,7 @@ class LinkedList:
             new_node.next = previous_node.next
             previous_node.next = new_node       
     
-    def append(self, data):
+    def append(self, data): # O(1)
         """Append Operation"""
         new_node = Node(data)
 
@@ -67,7 +67,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-    def delete_after(self, previous_node):
+    def delete_after(self, previous_node): # O(n)
         """Delete Operation"""
         data = previous_node.next.data
         
